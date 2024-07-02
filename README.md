@@ -26,7 +26,7 @@ The following notebook contains all the development of the analysis carried out.
 
 3 Train classification model as baseline to have a point of comparison.
 
-4 Train KNN, Logistic regression, Decision tree and SVM models in search of the best one. Oversampling techniques will be used (SMOTE, ADASYN) and neural networks will not be used since the number of records is not very large.
+4 Train KNN, Logistic regression, Decision tree, SGDClassifier and SVM models in search of the best one. Oversampling techniques will be used (SMOTE, ADASYN) and neural networks will not be used since the number of records is not very large.
 
 5 Once the model has been found, debugged and improved a version 1.0 will be deployed in production for use by the customer service area.
 
