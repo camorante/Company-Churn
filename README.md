@@ -32,37 +32,37 @@ The following notebook contains all the development of the analysis carried out.
 
 ### Data Understanding ###
 
-1 **ID**: Unique identification code of the company.
-2 **IsVIP**: Indicates if the customer is a VIP.
-3 **CountryCode**: Customer's Country Code
-4 **TotalUnits**: Number of GPS units purchased by the customer.
-5 **TotalFee**: Total charge for the service provided in USD dollars.
-6 **Industry**: Industry to which the customer belongs
-7 **Tenure**: customer's tenure in months
-8 **UsersCount**: count of users that the customer has on the platform
-9 **Churn**: Target variable, 1: Churn, 0: Not Churn
-10 **ChurnPerc**: Percentage of units in Churn
-11 **TicketsCount**: Count of support cases to date
-12 **TicketsPriorityMean**: Average priority of support cases(1: low, 2: normal, 3: high)
-13 **TicketsClosedCount**: count of closed support cases
-14 **SLATimeUsedTotal**: Total SLA Time Used which is the result of the sum of the SLA time of each case (each case has a maximum time of attention)
-15 **SLATimeUsedMean**: Average SLA time for all customer's cases
-16 **SLAPercentageTotal**: Total percentage which is a result of the sum of the SLA percentage spent on each case (a case that exceeds 100% of SLA is that it exceeded the maximum total time previously set for that case)
-17 **SLAPercentageMean**: Average percentage of SLA use
-18 **NonCompliantSLACount**: Count of cases that did not comply with the SLA
-19 **RMACount**: Count of cases returned to manufacturer for each customer in case of warranty
-20 **RMAUnitsCount**: Count of units returned to the manufacturer for each customer
-21 **MDVRCount**: Count of MDVR cameras owned by customer
-22 **FatigueMonitorCount**: Count of fatigue/drowsiness sensors owned by customer 
-23 **FuelSensorCount**: Count of fuel sensors owned by the customer 
-24 **PowerOnEventsCount**: Count of power on/off events of the GPS units owned by the customer
-25 **PricingCancelCount**: Count of requests for cancellation of customer's units for reasons of too high price of the service.
-26 **ClosedBussCancelCount**: Count of cancellation requests from the customer for reasons of business closure or bankruptcy.
-27 **NoPaymentCancelCount**: Count of customer's unit cancellation requests due to non-payment of invoices.
-28 **SoldVehicleCancelCount**: Count of requests for cancellation of customer's units due to sale of vehicles
-29 **NoUsedVehicleCancelCount**: Count of customer's unit cancellation requests due to unused vehicles
-30 **MultHWCasesCancelCount**: Count of customer's unit cancellation requests due to hardware problems in units
-31 **NoUsedCancelCount**: Count of customer's unit cancellation requests due to units not being used by customer
+1 **ID**: Unique identification code of the company.  <br />
+2 **IsVIP**: Indicates if the customer is a VIP.  <br />
+3 **CountryCode**: Customer's Country Code  <br />
+4 **TotalUnits**: Number of GPS units purchased by the customer.  <br />
+5 **TotalFee**: Total charge for the service provided in USD dollars.  <br />
+6 **Industry**: Industry to which the customer belongs  <br />
+7 **Tenure**: customer's tenure in months  <br />
+8 **UsersCount**: count of users that the customer has on the platform  <br />
+9 **Churn**: Target variable, 1: Churn, 0: Not Churn  <br />
+10 **ChurnPerc**: Percentage of units in Churn  <br />
+11 **TicketsCount**: Count of support cases to date  <br />
+12 **TicketsPriorityMean**: Average priority of support cases(1: low, 2: normal, 3: high)  <br />
+13 **TicketsClosedCount**: count of closed support cases  <br />
+14 **SLATimeUsedTotal**: Total SLA Time Used which is the result of the sum of the SLA time of each case (each case has a maximum time of attention)  <br />
+15 **SLATimeUsedMean**: Average SLA time for all customer's cases  <br />
+16 **SLAPercentageTotal**: Total percentage which is a result of the sum of the SLA percentage spent on each case (a case that exceeds 100% of SLA is that it exceeded the maximum total time previously set for that case)  <br />
+17 **SLAPercentageMean**: Average percentage of SLA use  <br />
+18 **NonCompliantSLACount**: Count of cases that did not comply with the SLA  <br />
+19 **RMACount**: Count of cases returned to manufacturer for each customer in case of warranty  <br />
+20 **RMAUnitsCount**: Count of units returned to the manufacturer for each customer  <br />
+21 **MDVRCount**: Count of MDVR cameras owned by customer  <br />
+22 **FatigueMonitorCount**: Count of fatigue/drowsiness sensors owned by customer   <br />
+23 **FuelSensorCount**: Count of fuel sensors owned by the customer   <br />
+24 **PowerOnEventsCount**: Count of power on/off events of the GPS units owned by the customer  <br />
+25 **PricingCancelCount**: Count of requests for cancellation of customer's units for reasons of too high price of the service.  <br />
+26 **ClosedBussCancelCount**: Count of cancellation requests from the customer for reasons of business closure or bankruptcy.  <br />
+27 **NoPaymentCancelCount**: Count of customer's unit cancellation requests due to non-payment of invoices.  <br />
+28 **SoldVehicleCancelCount**: Count of requests for cancellation of customer's units due to sale of vehicles  <br />
+29 **NoUsedVehicleCancelCount**: Count of customer's unit cancellation requests due to unused vehicles  <br />
+30 **MultHWCasesCancelCount**: Count of customer's unit cancellation requests due to hardware problems in units  <br />
+31 **NoUsedCancelCount**: Count of customer's unit cancellation requests due to units not being used by customer  <br />
 
 ### Data Preparation and Cleaning ###
 
@@ -118,3 +118,30 @@ The tenure feature is very interesting because as we can see in the graph, the a
 
 #### Churn By Tenure (Mean)
 
+The tenure feature is very interesting because as we can see in the graph, the average tenure is higher in customers with churn, that gives us an idea that the customer is more likely to cancel more and more services the longer he has used them. It is necessary to implement a stronger strategy that takes care of the old customers without neglecting the new ones.
+
+![](images/fig8.png)
+
+#### Churn Mean By No Payment
+
+The count of service cancellations due to stop paying for the service is notoriously much higher in customers with churn, which is natural, the recommendation is that if a customer stops paying for the service and the reason is because the service does not seem adequate, try to retain him and convert him to continue and pay the value owed.
+
+![](images/fig9.png)
+
+#### Churn Count By Country
+
+This value indicates that Colombia is the country that has more churn than others, this value is somewhat biased because the USA is no longer a target country for sales but still has loyal customers, the reason is that the USA is under another brand. The real comparison is between Colombia and Peru, and as you can see the churn is very high in Colombia compared to Peru.
+
+![](images/fig10.png)
+
+#### Churn Count By RMA Units
+
+The number of RMAs is much higher (twice as high) for customers without churn than for customers with churn, which gives us an idea that RMA is a valid strategy to retain customers because they feel well taken care of when product warranties are enforced.
+
+![](images/fig11.png)
+
+#### Churn Count By Pricing
+
+Cancellations due to cost and service prices are quite high when the client is in churn, here it is advisable to implement a commercial strategy that allows some prices to be more affordable for those who are willing to pay them. Perhaps the cost-benefit perception is lower than expected.
+
+![](images/fig12.png)
